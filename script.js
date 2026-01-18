@@ -114,7 +114,7 @@ const metrics = w => {
 };
 
 function draw() {
-    ctx.clearRect(0, 0, maxWidth, maxHeight);
+    ctx.clearRect(0, 0, maxWidth, maxHeight*50);
     ctx.font = `${settings.fontSize}px Consolas`;
 
     words.forEach(w => {
