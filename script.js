@@ -1,9 +1,10 @@
 const c = document.getElementById('canvas');
 const ctx = c.getContext('2d');
 
+const maxWidth = Math.min(window.innerWidth * 0.9, 800);
+const maxHeight = 500;
+
 function updateCanvasSize() {
-    const maxWidth = Math.min(window.innerWidth * 0.9, 800);
-    const maxHeight = 500;
     c.style.width = maxWidth + 'px';
     c.style.height = maxHeight + 'px';
 
@@ -113,7 +114,7 @@ const metrics = w => {
 };
 
 function draw() {
-    ctx.clearRect(0, 0, parseInt(c.style.width), parseInt(c.style.height));
+    ctx.clearRect(0, 0, maxWidth, maxHeight);
     ctx.font = `${settings.fontSize}px Consolas`;
 
     words.forEach(w => {
