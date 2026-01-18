@@ -10,6 +10,8 @@ function updateCanvasSize() {
     const dpr = window.devicePixelRatio || 1;
     c.width = maxWidth * dpr;
     c.height = maxHeight * dpr;
+    
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.scale(dpr, dpr);
 
     draw();
@@ -111,8 +113,7 @@ const metrics = w => {
 };
 
 function draw() {
-    const size = parseInt(c.style.width);
-    ctx.clearRect(0, 0, size, size);
+    ctx.clearRect(0, 0, parseInt(c.style.width), parseInt(c.style.height));
     ctx.font = `${settings.fontSize}px Consolas`;
 
     words.forEach(w => {
